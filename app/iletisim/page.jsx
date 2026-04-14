@@ -393,26 +393,15 @@ export default function ContactPage() {
               </div>
 
               {/* Map Placeholder */}
-              <div className="bg-card rounded-2xl border border-border overflow-hidden">
-                <div className="aspect-[4/3] bg-secondary relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="h-16 w-16 text-primary/30 mx-auto mb-3" />
-                      <p className="text-secondary-foreground/50">Harita Görünümü</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-4 text-center">
-                  <a
-                    href="https://maps.google.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-primary font-medium hover:underline"
-                  >
-                    Google Maps&apos;te Aç
-                  </a>
-                </div>
-              </div>
+          <div className="aspect-video bg-secondary rounded-xl overflow-hidden relative">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54926.11363235045!2d28.60840166953128!3d41.032911278634685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b55f7bd041105f%3A0x3e1279367181ea82!2zR2V6Z2VuIMSwbsWfYWF0IEJleWxpa2TDvHrDvA!5e1!3m2!1str!2str!4v1776175118351!5m2!1str!2str"
+    className="absolute inset-0 w-full h-full border-0"
+    loading="lazy"
+    allowFullScreen
+    referrerPolicy="no-referrer-when-downgrade"
+  ></iframe>
+</div>
             </div>
           </div>
         </div>
