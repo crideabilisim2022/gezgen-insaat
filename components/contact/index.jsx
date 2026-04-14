@@ -12,7 +12,11 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Telefon',
-    details: ['+90 212 123 45 67', '+90 532 123 45 67'],
+    details: ['+90 212 689 94 85', ],
+    action: {
+    label: 'Hemen Ara',
+    href: 'tel:+902126899485',
+  },
   },
   {
     icon: Mail,
@@ -108,11 +112,15 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">{info.title}</h4>
-                  {info.details.map((detail, i) => (
-                    <p key={i} className="text-sm text-muted-foreground">
-                      {detail}
-                    </p>
-                  ))}
+                {info.details.map((detail, i) => (
+  <a
+    key={i}
+    href={`tel:${detail.replace(/\s/g, '').replace(/^0/, '+90')}`}
+    className="block text-sm text-muted-foreground hover:text-primary"
+  >
+    {detail}
+  </a>
+))}
                 </div>
               </div>
             ))}

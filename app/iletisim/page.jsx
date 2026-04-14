@@ -19,11 +19,11 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Telefon',
-    details: ['+90 212 123 45 67', '+90 532 123 45 67'],
+    details: ['+90 212 689 94 85', ],
     action: {
-      label: 'Hemen Ara',
-      href: 'tel:+902121234567',
-    },
+    label: 'Hemen Ara',
+    href: 'tel:+902126899485',
+  },
   },
   {
     icon: Mail,
