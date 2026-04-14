@@ -7,7 +7,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: 'Adres',
-    details: ['Levent Mah. Büyükdere Cad.', 'No: 123, Beşiktaş', 'İstanbul, Türkiye'],
+    details: ['Güzelyurt, Yıldırım Beyazıt Cd. No:45, 34515 Esenyurt/İstanbul'],
   },
   {
     icon: Phone,

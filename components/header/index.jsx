@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X, Phone, Mail } from 'lucide-react'
+import { useRouter, usePathname } from 'next/navigation'
 
 const navItems = [
   { label: 'Ana Sayfa', href: '#hero' },
@@ -13,10 +14,12 @@ const navItems = [
 ]
 
 export default function Header() {
+  
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
-
+const router = useRouter()
+const pathname = usePathname()
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
@@ -38,16 +41,47 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+  useEffect(() => {
+  if (window.location.hash) {
+    const id = window.location.hash.replace('#', '')
+    const el = document.getElementById(id)
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault()
-    const targetId = href.replace('#', '')
-    const element = document.getElementById(targetId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+    if (el) {
+      setTimeout(() => {
+        el.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
     }
-    setIsMobileMenuOpen(false)
   }
+}, [])
+
+const handleNavClick = (e, href) => {
+  e.preventDefault()
+
+  const targetId = href.replace('#', '')
+
+  // ANA SAYFA TIKLANDI
+  if (targetId === 'hero') {
+    if (pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      history.replaceState(null, '', '/') // URL temizle
+    } else {
+      router.push('/')
+    }
+  } else {
+    // DİĞERLERİ
+    if (pathname === '/') {
+      const element = document.getElementById(targetId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+        history.replaceState(null, '', `/#${targetId}`) // URL güncelle
+      }
+    } else {
+      router.push(`/#${targetId}`)
+    }
+  }
+
+  setIsMobileMenuOpen(false)
+}
 
   return (
     <>

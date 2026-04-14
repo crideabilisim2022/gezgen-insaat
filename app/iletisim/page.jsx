@@ -10,7 +10,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: 'Merkez Ofis',
-    details: ['Levent Mah. Büyükdere Cad.', 'No: 123, Kat: 15', 'Beşiktaş, İstanbul'],
+    details: ['Güzelyurt, Yıldırım Beyazıt Cd. No:45, 34515 Esenyurt/İstanbul'],
     action: {
       label: 'Haritada Göster',
       href: 'https://maps.google.com',
@@ -45,7 +45,7 @@ const contactInfo = [
 const officeLocations = [
   {
     city: 'İstanbul',
-    address: 'Levent Mah. Büyükdere Cad. No: 123',
+    address: 'Güzelyurt, Yıldırım Beyazıt Cd. No:45, 34515 Esenyurt/İstanbul',
     phone: '+90 212 123 45 67',
     isMain: true,
   },

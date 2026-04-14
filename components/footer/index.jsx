@@ -135,7 +135,7 @@ export default function Footer() {
               <li className="flex gap-3 text-sm">
                 <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
                 <span className="text-secondary-foreground/70">
-                  Levent Mah. Büyükdere Cad. No: 123, Beşiktaş, İstanbul
+                 Güzelyurt, Yıldırım Beyazıt Cd. No:45, 34515 Esenyurt/İstanbul
                 </span>
               </li>
               <li>
