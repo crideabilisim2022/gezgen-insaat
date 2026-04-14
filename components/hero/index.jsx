@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { ArrowRight, Building2, Users, Award, Calendar } from 'lucide-react'
+import Image from 'next/image'
 
 const stats = [
   { icon: Building2, value: '150+', label: 'Tamamlanan Proje' },
@@ -33,42 +34,18 @@ export default function Hero() {
       {/* Background */}
       <div className="absolute inset-0 bg-secondary">
         {/* Decorative Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }}
-          />
-        </div>
+   <div className="absolute inset-0">
+  <Image
+    src="/img/hero/1.jpg"
+    alt="Hero"
+    fill
+    className="object-cover"
+    priority
+  />
+</div>
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/95 to-secondary/80" />
 
-        {/* Building Silhouette */}
-        <div className="absolute right-0 bottom-0 w-1/2 h-full opacity-10">
-          <svg
-            viewBox="0 0 400 600"
-            className="h-full w-full text-primary-foreground"
-            preserveAspectRatio="xMaxYMax slice"
-          >
-            <rect x="50" y="200" width="80" height="400" fill="currentColor" />
-            <rect x="150" y="100" width="100" height="500" fill="currentColor" />
-            <rect x="270" y="150" width="90" height="450" fill="currentColor" />
-            {/* Windows */}
-            {[...Array(15)].map((_, i) => (
-              <rect
-                key={i}
-                x={170 + (i % 3) * 25}
-                y={130 + Math.floor(i / 3) * 40}
-                width="15"
-                height="25"
-                fill="white"
-                opacity="0.3"
-              />
-            ))}
-          </svg>
-        </div>
       </div>
 
       {/* Content */}
