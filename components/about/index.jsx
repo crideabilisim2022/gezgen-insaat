@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { CheckCircle2, Building2, Shield, Clock, Users } from 'lucide-react'
+import Image from 'next/image'
 
 const features = [
   {
@@ -79,18 +80,30 @@ export default function About() {
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
             }`}
           >
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-secondary">
-              {/* Placeholder Visual */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <Building2 className="h-24 w-24 text-primary/30 mx-auto mb-4" />
-                  <p className="text-secondary-foreground/50 text-sm">25 Yıllık Tecrübe</p>
-                </div>
-              </div>
-              {/* Decorative Elements */}
-              <div className="absolute top-4 left-4 w-20 h-20 border-2 border-primary/20 rounded-lg" />
-              <div className="absolute bottom-4 right-4 w-32 h-32 border-2 border-primary/20 rounded-lg" />
-            </div>
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-secondary">
+  
+  {/* Image */}
+  <Image
+    src="/img/about/1.jpg" 
+    alt="25 Yıllık Tecrübe"
+    fill
+    className="object-cover"
+  />
+
+  {/* Overlay (yazı için karartma) */}
+  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+    <div className="text-center">
+      <p className="text-white text-lg font-semibold">
+        25 Yıllık Tecrübe
+      </p>
+    </div>
+  </div>
+
+  {/* Decorative Elements */}
+  <div className="absolute top-4 left-4 w-20 h-20 border-2 border-white/30 rounded-lg" />
+  <div className="absolute bottom-4 right-4 w-32 h-32 border-2 border-white/30 rounded-lg" />
+
+</div>
             {/* Stats Card */}
             <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded-xl shadow-xl">
               <p className="text-4xl font-bold">150+</p>

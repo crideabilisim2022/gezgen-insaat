@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { Building2, MapPin, Calendar, ArrowRight, Eye } from 'lucide-react'
+import Image from 'next/image'
 
 export const projectsData = [
   {
@@ -16,7 +17,12 @@ export const projectsData = [
     units: '320 Daire',
     description: 'Modern mimari ile doğanın buluştuğu, 320 daireden oluşan prestijli konut projesi. Yeşil alanlar, sosyal tesisler ve akıllı ev sistemleriyle donatılmış.',
     features: ['Akıllı Ev Sistemleri', 'Yeşil Alan', 'Sosyal Tesisler', 'Kapalı Otopark', 'Güvenlik'],
-    images: ['/projects/yesil-vadi-1.jpg'],
+     image: "/img/projects/1.jpg",
+     gallery: [
+  "/img/projects/1.jpg",
+  "/img/projects/2.jpg",
+  "/img/projects/3.webp",
+],
   },
   {
     id: 2,
@@ -29,7 +35,13 @@ export const projectsData = [
     units: '25 Kat',
     description: 'Maslak iş merkezinde konumlanan, A+ sınıf ofis alanları sunan modern plaza projesi. LEED sertifikalı sürdürülebilir yapı.',
     features: ['LEED Sertifikalı', 'A+ Ofis Alanları', 'Konferans Salonu', 'Heliport', 'VIP Asansör'],
-    images: ['/projects/mavi-kule-1.jpg'],
+    image: "/img/projects/2.jpg",
+    gallery: [
+  "/img/projects/1.jpg",
+  "/img/projects/2.jpg",
+  "/img/projects/3.webp",
+],
+
   },
   {
     id: 3,
@@ -42,7 +54,13 @@ export const projectsData = [
     units: '200 Mağaza',
     description: '200 mağaza kapasiteli, sinema kompleksi ve eğlence alanları bulunan bölgenin en büyük alışveriş merkezi.',
     features: ['Sinema Kompleksi', 'Food Court', 'Çocuk Oyun Alanı', 'Kapalı Otopark', 'Etkinlik Alanı'],
-    images: ['/projects/altin-park-1.jpg'],
+    image: "/img/projects/3.webp",
+    gallery: [
+  "/img/projects/1.jpg",
+  "/img/projects/2.jpg",
+  "/img/projects/3.webp",
+],
+
   },
   {
     id: 4,
@@ -55,7 +73,13 @@ export const projectsData = [
     units: '180 Daire',
     description: 'Deniz manzaralı, lüks konut projesi. Özel plaj erişimi ve marina imkanı sunan prestijli yaşam alanı.',
     features: ['Deniz Manzarası', 'Özel Plaj', 'Marina', 'Spa & Fitness', 'Concierge'],
-    images: ['/projects/sahil-residence-1.jpg'],
+     image: "/img/projects/4.jpg",
+     gallery: [
+  "/img/projects/1.jpg",
+  "/img/projects/2.jpg",
+  "/img/projects/3.webp",
+],
+    
   },
   {
     id: 5,
@@ -68,7 +92,13 @@ export const projectsData = [
     units: '4 Üretim Hattı',
     description: 'Otomotiv yan sanayi için tasarlanmış, son teknoloji üretim tesisi. Enerji verimliliği ve çevre dostu tasarım.',
     features: ['Güneş Enerjisi', 'Atık Yönetimi', 'Ar-Ge Merkezi', 'Lojistik Alan', 'Personel Tesisleri'],
-    images: ['/projects/tech-park-1.jpg'],
+    image: "/img/projects/5.jpg",
+    gallery: [
+  "/img/projects/1.jpg",
+  "/img/projects/2.jpg",
+  "/img/projects/3.webp",
+],
+
   },
   {
     id: 6,
@@ -81,7 +111,13 @@ export const projectsData = [
     units: '500 Yatak',
     description: '500 yatak kapasiteli, tam donanımlı devlet hastanesi. Depreme dayanıklı yapı ve modern tıbbi altyapı.',
     features: ['Heliport', 'Acil Servis', 'Yoğun Bakım', 'Ameliyathane', 'Görüntüleme Merkezi'],
-    images: ['/projects/merkez-hastane-1.jpg'],
+    image: "/img/projects/6.jpg",
+    gallery: [
+  "/img/projects/1.jpg",
+  "/img/projects/2.jpg",
+  "/img/projects/3.webp",
+],
+
   },
 ]
 
@@ -188,31 +224,29 @@ export default function Projects() {
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
               {/* Image */}
-              <div className="relative aspect-[4/3] bg-secondary overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Building2 className="h-16 w-16 text-primary/20" />
-                </div>
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-secondary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Link
-                    href={`/projeler/${project.id}`}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300"
-                  >
-                    <Eye className="h-4 w-4" />
-                    Detayları Gör
-                  </Link>
-                </div>
-                {/* Status Badge */}
-                <div className="absolute top-4 left-4">
-                  {getStatusBadge(project.status)}
-                </div>
-                {/* Category Badge */}
-                <div className="absolute top-4 right-4">
-                  <span className="px-3 py-1 bg-card/90 backdrop-blur-sm text-foreground rounded-full text-xs font-medium">
-                    {project.category}
-                  </span>
-                </div>
-              </div>
+              <div className="relative aspect-[4/3] overflow-hidden">
+  
+  <Image
+    src={project.image}
+    alt={project.title}
+    fill
+    unoptimized
+    className="object-cover"
+  />
+
+  {/* Status Badge */}
+  <div className="absolute top-4 left-4">
+    {getStatusBadge(project.status)}
+  </div>
+
+  {/* Category Badge */}
+  <div className="absolute top-4 right-4">
+    <span className="px-3 py-1 bg-white/90 text-black rounded-full text-xs font-medium">
+      {project.category}
+    </span>
+  </div>
+
+</div>
 
               {/* Content */}
               <div className="p-6">

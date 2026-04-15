@@ -36,7 +36,7 @@ export default function Hero() {
         {/* Decorative Pattern */}
    <div className="absolute inset-0">
   <Image
-    src="/img/hero/1.jpg"
+    src="/img/projects/1.jpg"
     alt="Hero"
     fill
     className="object-cover"
@@ -69,7 +69,7 @@ export default function Hero() {
           >
             <span className="text-balance">Hayallerinizi</span>
             <br />
-            <span className="text-primary">Gerçeğe</span> Dönüştürüyoruz
+            <span className="text-balance">Gerçeğe</span> Dönüştürüyoruz
           </h1>
 
           {/* Subtitle */}

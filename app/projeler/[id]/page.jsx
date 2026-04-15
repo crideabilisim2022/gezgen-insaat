@@ -8,6 +8,7 @@ import { projectsData } from '@/components/projects'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Modal from '@/components/modal'
+import Image from 'next/image'
 
 export default function ProjectDetail() {
   const params = useParams()
@@ -106,21 +107,29 @@ export default function ProjectDetail() {
             {/* Main Content */}
             <div className="lg:col-span-2">
               {/* Hero Image */}
-              <div className="relative aspect-video bg-secondary rounded-2xl overflow-hidden mb-8">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Building2 className="h-24 w-24 text-primary/20" />
-                </div>
-                {/* Status Badge */}
-                <div className="absolute top-4 left-4">
-                  {getStatusBadge(project.status)}
-                </div>
-                {/* Category Badge */}
-                <div className="absolute top-4 right-4">
-                  <span className="px-4 py-2 bg-card/90 backdrop-blur-sm text-foreground rounded-full font-medium">
-                    {project.category}
-                  </span>
-                </div>
-              </div>
+          <div className="relative aspect-video rounded-2xl overflow-hidden mb-8">
+  
+  <Image
+    src={project.image}
+    alt={project.title}
+    fill
+    unoptimized
+    className="object-cover"
+  />
+
+  {/* Status Badge */}
+  <div className="absolute top-4 left-4">
+    {getStatusBadge(project.status)}
+  </div>
+
+  {/* Category Badge */}
+  <div className="absolute top-4 right-4">
+    <span className="px-4 py-2 bg-white/90 text-black rounded-full font-medium">
+      {project.category}
+    </span>
+  </div>
+
+</div>
 
               {/* Project Title & Info */}
               <div className="mb-8">
@@ -176,19 +185,29 @@ export default function ProjectDetail() {
                 <h2 className="font-serif text-xl font-bold text-foreground mb-4">
                   Proje Galerisi
                 </h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {[...Array(6)].map((_, index) => (
-                    <div
-                      key={index}
-                      className="aspect-square bg-secondary rounded-xl overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
-                      onClick={() => setIsModalOpen(true)}
-                    >
-                      <div className="w-full h-full flex items-center justify-center">
-                        <Building2 className="h-8 w-8 text-primary/20" />
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <div>
+  <h2 className="font-serif text-xl font-bold text-foreground mb-4">
+    Proje Galerisi
+  </h2>
+
+  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+    {project.gallery?.map((img, index) => (
+      <div
+        key={index}
+        className="aspect-square rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+        onClick={() => setIsModalOpen(true)}
+      >
+        <Image
+          src={img}
+          alt={`${project.title} ${index + 1}`}
+          width={400}
+          height={400}
+          className="w-full h-full object-cover"
+        />
+      </div>
+    ))}
+  </div>
+</div>
               </div>
             </div>
 
